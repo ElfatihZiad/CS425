@@ -9,10 +9,10 @@ class Workshop(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=False)
     date = Column(Date, nullable=False)
-    time = Column(Time, default=True)
-    venue = Column(String, default=True)
-    capacity = Column(Integer, default=True)
-    deadline = Column(DateTime, default=True)
+    time = Column(Time, nullable=False)
+    venue = Column(String, nullable=False)
+    capacity = Column(Integer, nullable=False)
+    deadline = Column(DateTime, nullable=False)
 
     registrations = relationship("Registration", back_populates="workshop")
 
@@ -25,7 +25,6 @@ class Registration(Base):
     student_name = Column(String, nullable=False)
     student_email = Column(String, nullable=False)
     registration_date = Column(Date, nullable=False)
-    return_date = Column(Date, nullable=False)
 
     workshop_id = Column(
         Integer,
